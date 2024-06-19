@@ -1,0 +1,23 @@
+ <div>
+<h3 style="color:red;font-size:50px;margin-top:0px; text-align:center">Image-Text</h3>
+<img src="${properties.fileReference}" style="width:500px; height:500px; float:left ;margin-right:15px; margin-top:0px"/>
+<p>${properties.text @context='html'}</p> 
+
+${'yyyy-MM-dd' @format=properties.date}<br>
+
+${'dd-MMM-YYYY' @format=properties.date}
+
+${'page {1} {0}' @format=['Details','hello']}
+
+
+
+
+ 
+
+</div>
+
+<div>
+<ul data-sly-list.object="${currentPage.listChildren}">
+${item.title}
+</ul>
+</div>

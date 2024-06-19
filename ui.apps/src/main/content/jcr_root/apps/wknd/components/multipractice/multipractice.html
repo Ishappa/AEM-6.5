@@ -1,0 +1,50 @@
+
+<h3>Multifield-Pract</h3>
+
+<sly data-sly-use.multi="com.adobe.aem.guides.wknd.core.models.MultifieldPractice"/>
+
+<sly data-sly-list.multi1="${multi.fields}" >
+
+<div>
+Title::${multi1.title}<br>
+Description::${multi1.desc @ context='html'}
+</div>
+
+<sly data-sly-list.multi2="${multi1.fields2}">
+<img src="${multi2.fileReference}" width=200px height=200px/>
+</sly>
+
+
+</sly>
+
+
+
+
+<!-- <br>Repeat
+<div data-sly-repeat.multi2="${multi.fields}">
+
+Title::${multi2.title}<br>
+Description::${multi2.desc @ context='html'}
+</div> -->
+
+
+
+
+
+
+
+<!--
+<sly data-sly-list.multi="${resource.getChildren}">
+<sly data-sly-test="${multi.name=='fields'}" data-sly-list.items="${multi.getChildren}">
+<div>
+Title::${items.title}<br>
+Description::${items.desc}
+</div>
+<sly data-sly-list.items2="${items.getChildren}">
+<sly data-sly-test="${items2.name=='fields2'}" data-sly-list.items3="${items2.getChildren}">
+<img src="${items3.fileReference}" width=100px height=100px/>
+</sly>
+</sly>
+</sly>
+
+</sly> -->

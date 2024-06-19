@@ -1,0 +1,228 @@
+<style>
+
+.carousel-indicators_ooka {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+
+}
+
+.carousel-item_ooka {
+    display:flex;
+    flex-shrink:0;
+        width:342px;
+    position: relative;
+    height: 100%;
+    will-change: transform;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-caption_ooka {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+
+
+
+.carousel-container_ooka{
+	position:relative;
+}
+
+.carousel-inner_ooka {
+display: grid;
+    /*grid-template-columns: repeat(auto-fit,minmax(auto,342px));
+    grid-auto-flow:column;
+    grid-column-gap:16px;*/
+    display: flex;
+    gap: 0px 16px;
+    width: 98%;
+    margin: auto;
+    overflow-x: hidden;
+
+
+}
+
+
+.carousel-control-prev_ooka,
+.carousel-control-next_ooka {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color:white;
+}
+
+.carousel-control-prev_ooka {
+    left: 10px;
+}
+
+.carousel-control-next_ooka {
+    right: 10px;
+
+}
+
+.carousel-control-prev_ooka:hover
+{
+    background-color: #999494;
+    border-radius: 10px;
+    color: black;
+}
+
+.carousel-control-next_ooka:hover
+{
+    background-color: #999494;
+    border-radius: 10px;
+    color: black;
+}
+</style>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    "use strict";
+
+    var currentIndex = 0;
+    var totalSlides = document.querySelectorAll(".carousel-item_ooka").length;
+    
+    <!--var totalSlides = document.querySelectorAll(".carousel-item_ooka:not(.d-none)").length;-->
+
+     var carouselContainer = document.getElementById("myCarousel_ooka");
+     var intervalId;
+
+    console.log(totalSlides );
+
+	 document.querySelector(".carousel-control-prev_ooka").addEventListener("click", function() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+
+    });
+
+    document.querySelector(".carousel-control-next_ooka").addEventListener("click", function() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+
+    }); 
+
+
+      function updateCarousel() {
+        var translateValue = -currentIndex * (342+16) + "px";
+        console.log(translateValue)
+        document.querySelectorAll(".carousel-item_ooka").forEach((divContainer, index) => {
+        	console.log(divContainer);
+            divContainer.style.transform = "translateX(" + translateValue + ")";
+        });
+    }
+
+
+});
+
+
+</script> 
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${resource.getChildren}" />
+
+
+
+<sly data-sly-list.props="${resource.getChildren}">
+    <div class="carousel-container_ooka" data-sly-test="${props.name == 'fields'}">
+
+        <div class="carousel_ooka" id="myCarousel_ooka">
+            <div class="carousel-inner_ooka" role="listbox">
+
+                <sly data-sly-list.multifielditem="${props.getChildren}" varStatus="carouselStatus">
+
+                    <div class="carousel-item_ooka">
+                        <img src="${multifielditem.fileReference}" alt="${multifielditem.title}">
+                        <div class="carousel-caption_ooka">
+                            <h2>${multifielditem.title}</h2>
+							<p>${multifielditem.desc}</p>
+                        </div>
+                    </div>
+
+                </sly>
+            </div>
+
+
+
+           <div class="carousel-control-prev_ooka" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </div>
+
+            <div class="carousel-control-next_ooka" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+
+
+    	</div>
+
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!empty}"></sly> 
+
+
+
+
+
+
+
+<!--
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${resource.getChildren}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='carosel_compo.Lib'}"/> 
+  </sly>
+
+<div data-sly-use.multi="com.adobe.aem.guides.wknd.core.models.Carousel">
+
+    <div class="carousel-container">
+        <div class="carousel" id="myCarousel">
+            <div class="carousel-inner" role="listbox">
+
+                <sly data-sly-list.multifielditem="${multi.fields}" varStatus="carouselStatus">
+                    <div class="carousel-item">
+                        <img src="${multifielditem.fileReference}" alt="${multifielditem.title}">
+                        <div class="carousel-caption">
+                            <h2>${multifielditem.title}</h2>
+                            <p>${multifielditem.desc}</p>
+                        </div>
+                    </div>
+                </sly>
+
+            </div>
+
+            <ol class="carousel-indicators">
+                <sly data-sly-list.multifielditem="${multi.fields}" varStatus="indicatorStatus">
+                    <li data-target="#myCarousel" data-slide-to="${indicatorStatus.index}" class="${indicatorStatus.first ? 'active' : ''}"></li>
+                </sly>
+            </ol>
+
+
+       	   <div class="carousel-control-prev" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"> Prev </span>
+            </div>
+
+            <div class="carousel-control-next" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"> Next </span>
+            </div>  
+
+
+        </div>
+    </div>
+
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!empty}"></sly> -->
+
+

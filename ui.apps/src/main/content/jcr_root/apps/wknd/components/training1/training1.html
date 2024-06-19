@@ -1,0 +1,24 @@
+<h1>Employee Details</h1>
+<sly data-sly-use.detail="${'com.adobe.aem.guides.wknd.core.models.Training1' @ training='Codilar'}" />
+Employee name :: ${detail.name} <br>
+Designation :: ${detail.role} <br>
+Location :: ${detail.place} <br>
+Experience :: ${detail.exp} <br>
+
+PageTitle :: ${detail.pageTitle}<br>
+Resource :: ${detail.slingresourceType} <br>
+
+Request Attribute :: ${detail.training}<br>
+Path :: ${detail.resourc}<br>
+
+Type:: ${detail.type}
+
+${detail.s}
+
+
+<sly data-sly-test="${detail.exp >= 10}">
+    <p>Senior employee? Yes</p>
+</sly>
+<sly data-sly-test="${detail.exp < 10}">
+    <p>Senior employee? No</p>
+</sly>

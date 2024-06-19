@@ -1,0 +1,14 @@
+akil
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientLib.all @ categories='wknd.ajax'}" />
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<div id="demo">
+    <h2 id="#ajax"style = "color:red">Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc()" class="btn">Change Content</button>
+</div>
+<script src="/apps/wknd/clientlibs/clientlib-ajax/js/example.js"></script>
+
+</sly>

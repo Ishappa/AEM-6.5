@@ -1,0 +1,69 @@
+<style>
+
+
+*{
+   box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+.child_container_img{
+
+	 display:flex;
+
+}
+
+.child_container_img.swap{
+	flex-direction:row-reverse;
+}
+.child_container_img img{
+width:50%;
+margin-right:20px;
+
+}
+.btn{
+
+    display: block;
+    margin: auto;
+    color: white;
+    background-color: #e71111;
+    border-radius: 5px;
+    margin-top: 5px;
+    transition:background-color 200ms ease-in,border 200ms ease-in;
+	border:2px solid transparent;
+
+}
+
+.btn:hover{
+
+ cursor:pointer;
+    background-color:#5c2f4d;
+    border-color:black;
+
+}
+
+
+
+</style>
+<div class="main_container_swp">
+	<div class="child_container_img">
+					<img src="${properties.fileReference}"/>
+				<p class="text_container">${properties.text @context='html'}</p>
+	</div>
+	<button class="btn" type="button">Click to Swap </button>
+</div>
+
+
+<!--const btn=$("[type=button]")-->
+
+<script type="text/javascript">
+const div=$(".child_container_img");
+const btn=$(".btn");
+btn[0].addEventListener("click",()=>{
+		div[0].classList.toggle("swap")
+})
+
+</script> 

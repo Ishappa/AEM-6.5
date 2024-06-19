@@ -1,0 +1,36 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.header1}">
+  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='ookatask'}" /> 
+  </sly>
+  <div class="footer_container">
+
+     <div class="footer_container2">
+         <h1 class="heading">  ${properties.header1}</h1>
+         <section data-sly-list.props="${resource.getChildren}">
+            <div class="one" data-sly-test="${props.name == 'field1'}" data-sly-list.multifielditem="${props.getChildren}">
+              <a href="${multifielditem.link1}" target="_blank"> ${multifielditem.name1}</a><br>
+            </div>
+         </section>
+    </div>
+
+    <div class="footer_container2">
+       <h1 class="heading"> ${properties.header2}</h1>
+       <section data-sly-list.props="${resource.getChildren}">
+          <div class="one" data-sly-test="${props.name == 'field2'}" data-sly-list.multifielditem="${props.getChildren}">
+            <a href="${multifielditem.link2}"> ${multifielditem.name1}</a><br>
+          </div>
+       </section>
+    </div>
+
+    <div class="footer_container2">
+       <h1 class="heading"> ${properties.header3}</h1>
+       <section data-sly-list.props="${resource.getChildren}">
+         <div class="one" data-sly-test="${props.name == 'field3'}" data-sly-list.multifielditem="${props.getChildren}">
+            <a href="${multifielditem.link3}"> ${multifielditem.name1}</a><br>
+         </div>
+       </section>
+    </div>
+
+  </div>
+</sly>
+<sly data-sly-call="${template.placeholder  @ isEmpty=!empty}"></sly>

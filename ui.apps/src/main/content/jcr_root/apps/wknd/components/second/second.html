@@ -1,0 +1,12 @@
+Second One
+
+<sly data-sly-use.demo = "com.adobe.aem.guides.wknd.core.models.Servmodel"></sly>
+${demo.msg}
+
+<sly data-sly-use.page = "com.adobe.aem.guides.wknd.core.models.Second">
+
+<div data-sly-resource="${'first' @resourceType='wknd/components/first'}"></div>
+<p>${page.text2}</p>
+
+
+</sly>

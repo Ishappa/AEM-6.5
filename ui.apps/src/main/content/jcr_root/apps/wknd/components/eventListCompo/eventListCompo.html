@@ -1,0 +1,32 @@
+
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.counts}">
+ <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='EventClientLib'}" /> 
+  </sly>
+<sly data-sly-use.m="com.adobe.aem.guides.wknd.core.models.EventModel">
+    <div class="event_container">
+        <div class="event_sidebar">
+            <h2>Event List</h2>
+
+            <ul data-sly-list="${m.pageinfo}" >
+                <li>
+
+                    <a href="${item.path}.html">Title: ${item.title}</a><br>
+                    Location: ${item.location}<br>
+                    Date: ${item.date}<br>
+                </li>
+            </ul>
+
+            <sly data-sly-test="${m.pageinfo.size == 0}">
+                <p class="event_no-events">No upcoming events</p>
+            </sly>
+        </div>
+
+        <div class="event_main-content">
+            <!-- Your existing content goes here -->
+        </div>
+    </div>
+</sly>
+</sly>
+<sly data-sly-call="${template.placeholder  @ isEmpty=!empty}"></sly>

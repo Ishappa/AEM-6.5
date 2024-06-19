@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Demo"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+        margin="{Boolean}false">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <Textfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="UserName"
+                        name="./name"/>
+                    <textarea
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                        fieldLabel="Message"
+                        name="./area"/>
+                    <type
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Type"
+                        name="./type">
+                        <items jcr:primaryType="nt:unstructured">
+                            <backEnd
+                                jcr:primaryType="nt:unstructured"
+                                text="Back-End"
+                                value="Back-End Developer"/>
+                            <frontEnd
+                                jcr:primaryType="nt:unstructured"
+                                text="Front-End"
+                                value="Front-End Developer"/>
+                            <fullStack
+                                jcr:primaryType="nt:unstructured"
+                                text="Full-Stack"
+                                value="Full-End Developer"/>
+                        </items>
+                    </type>
+                    <radio
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                        fieldLabel="Skills">
+                        <items jcr:primaryType="nt:unstructured">
+                            <skill1
+                                jcr:primaryType="nt:unstructured"
+                                text="JAVA"/>
+                            <skill2
+                                jcr:primaryType="nt:unstructured"
+                                text="HTML"/>
+                            <skill3
+                                jcr:primaryType="nt:unstructured"
+                                text="CSS"/>
+                        </items>
+                    </radio>
+                    <datePicker
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                        displayedFormat=" MM-DD-YYYY"
+                        fieldLabel="Choose Date"
+                        name="./date"
+                        type="datetime"
+                        typeHint="String"/>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

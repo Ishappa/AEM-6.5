@@ -1,0 +1,18 @@
+Call-Parameter-HTLtoModel
+<!-- expect /content/wknd/language-master/zh/page1.html -->
+<a class="title-text" data-sly-use.linkResolve="${'com.adobe.aem.guides.wknd.core.models.CallParmtrHtlToModel' @ href='/content/wknd/language-master/zh/page1'}" href="${linkResolve.href}" target="${linkResolve.target}" rel="noopener">
+    ${linkResolve.href}
+</a>
+<br/>
+
+<!-- expect https://codilar.com -->
+<a class="title-text" data-sly-use.linkResolve="${'com.adobe.aem.guides.wknd.core.models.CallParmtrHtlToModel' @ href='https://codilar.com'}" href="${linkResolve.href}" target="${linkResolve.target}" rel="noopener">
+    ${linkResolve.href}
+</a>
+
+<!-- expect https://codilar.com -->
+<a data-sly-use.linkResolve="${'com.adobe.aem.guides.wknd.core.models.CallParmtrHtlToModel' @
+   href=properties.href,
+   target=properties.target}" href="${linkResolve.href}" target="${linkResolve.target}" rel="noopener">
+    ${linkResolve.href}
+</a>

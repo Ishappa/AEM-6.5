@@ -1,0 +1,176 @@
+
+<script>
+    function validateForm() {
+        var emailInput = document.getElementById("emailInput").value;
+        var errorMessage = document.getElementById("errorMessage");
+
+        if (emailInput.trim() === "") {
+
+            errorMessage.style.display = "block";
+        } else {
+
+            errorMessage.style.display = "none";
+
+
+            console.log("Email submitted: " + emailInput);
+        }
+    }
+</script>
+
+
+<style>
+
+.main
+{
+    background-color:black;
+    color:white;
+    height:200px;
+    width: 768px;
+
+
+
+}
+.merger_compo{
+	display:flex;
+    background-color: black;
+
+}
+
+
+.parent_container2
+{
+
+     margin-left:100px;
+    padding-top: 20px;
+}
+
+.main_container{
+display:flex;
+
+
+
+}
+
+.main_container h5{
+
+	font-style:italic;
+    color:red;
+    font-weight:100; 
+    display:none;
+}
+
+.input_container{
+    position:relative;
+    border-radius:20px;
+    background-color: #383535;
+     border:none;
+    height:40px;
+    width:400px;
+    padding:20px;
+     outline: none;
+    color:white;
+    margin-top:16px;
+
+
+}
+.input_container::-webkit-input-placeholder{
+	color:white;
+    font-weight:200;
+}
+
+.button_container{
+    position:absolute;
+	border-radius:20px;
+    left:440px;
+	background: linear-gradient(45deg, #813b7a, #e60b9c);
+    height:41px;
+	width:135px;
+    cursor: pointer;
+    border:none;
+    color:white;
+     margin-top:16px;
+
+}
+
+
+
+
+</style>
+
+<div class="merger_compo">
+
+<sly  data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.title}">
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='teaserImage1.wknd'}" /> 
+  </sly>
+
+<div class="main">
+<div class = "parent_container2">
+<h2>${properties.title}</h2><br>
+
+ <section data-sly-list.props="${resource.getChildren}">
+   <div   data-sly-test="${props.name == 'fields'}" data-sly-list.multifielditem="${props.getChildren}">
+
+	 <div>
+                    <p style="max-width: 445px;font-weight:200;"> ${multifielditem.desc}</p>
+
+	 </div>
+   </div>
+
+ </section>
+<div class="main_container">
+<form id="subscribeForm">
+    <input class="input_container" placeholder="Email Address" type="email" id="emailInput"/>
+    <button class="button_container" type="button" onclick="validateForm()">SUBSCRIBE</button>
+     <h5 id="errorMessage">This field is required!</h5>
+</form>
+
+
+
+</div>
+
+</div>
+</div>
+
+</sly>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!empty}"></sly>
+
+<div data-sly-resource="${ 'newPath' @ resourceType='wknd/components/webfollowUs' }"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

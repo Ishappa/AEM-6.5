@@ -1,0 +1,61 @@
+
+Pract_ multifield
+
+<sly data-sly-use.multi="com.adobe.aem.guides.wknd.core.models.PractMulti1"/>
+
+<sly data-sly-list.multi1="${multi.fields}">
+
+<h3>${multi1.text}</h3>
+
+
+<sly data-sly-list.multi2="${multi1.fields2}">
+
+<img src="${multi2.fileReference}" width="250px">
+
+</sly>
+
+
+</sly>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<sly data-sly-list.multi="${resource.getChildren}">
+
+<sly data-sly-list.multi1="${multi.getChildren}">
+
+<h1>${multi1.text}</h1>
+
+
+<sly data-sly-list.multi2="${multi1.getChildren}">
+<div data-sly-list.multi3="${multi2.getChildren}">
+<img src="${multi3.fileReference}" width="200px">
+</div>
+
+</sly>
+
+
+</sly>
+</sly> -->

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Deatils"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <multifield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="{Boolean}true">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./fields">
+                            <items jcr:primaryType="nt:unstructured">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Enter the Title"
+                                    name="./title"/>
+                                <Decription
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    fieldLabel="Enter the Decription"
+                                    name="./desc"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                    <rtePlugins jcr:primaryType="nt:unstructured">
+                                        <format
+                                            jcr:primaryType="nt:unstructured"
+                                            features="bold,italic"/>
+                                        <justify
+                                            jcr:primaryType="nt:unstructured"
+                                            features="-"/>
+                                        <links
+                                            jcr:primaryType="nt:unstructured"
+                                            features="modifylink,unlink"/>
+                                        <lists
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                        <misctools jcr:primaryType="nt:unstructured">
+                                            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                <chars jcr:primaryType="nt:unstructured">
+                                                    <default_copyright
+                                                        jcr:primaryType="nt:unstructured"
+                                                        entity="&amp;copy;"
+                                                        name="copyright"/>
+                                                    <default_euro
+                                                        jcr:primaryType="nt:unstructured"
+                                                        entity="&amp;euro;"
+                                                        name="euro"/>
+                                                    <default_registered
+                                                        jcr:primaryType="nt:unstructured"
+                                                        entity="&amp;reg;"
+                                                        name="registered"/>
+                                                    <default_trademark
+                                                        jcr:primaryType="nt:unstructured"
+                                                        entity="&amp;trade;"
+                                                        name="trademark"/>
+                                                </chars>
+                                            </specialCharsConfig>
+                                        </misctools>
+                                        <table
+                                            jcr:primaryType="nt:unstructured"
+                                            features="-">
+                                            <hiddenHeaderConfig
+                                                jcr:primaryType="nt:unstructured"
+                                                hiddenHeaderClassName="cq-wcm-foundation-aria-visuallyhidden"
+                                                hiddenHeaderEditingCSS="cq-RichText-hiddenHeader--editing"/>
+                                        </table>
+                                        <tracklinks
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    </rtePlugins>
+                                </Decription>
+                                <multifieldNested
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true">
+                                    <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        name="./fields2">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <image
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                class=" cq-droptarget"
+                                                fileNameParameter="./fileName"
+                                                fileReferenceParameter="./fileReference"
+                                                mimeTypes="image/gif,image/jpeg,image/png,image/tiff,image/svg+xml"
+                                                name="./file"
+                                                title="Upload Image Asset"/>
+                                        </items>
+                                    </field>
+                                </multifieldNested>
+                            </items>
+                        </field>
+                    </multifield>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

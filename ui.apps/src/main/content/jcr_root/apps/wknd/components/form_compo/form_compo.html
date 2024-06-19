@@ -1,0 +1,85 @@
+
+<style>
+
+.form_parent_container 
+{
+
+}
+
+
+.from_container{
+	background-color: grey;
+    width:400px;
+    height:350px;
+	margin:auto;
+
+
+    }
+
+    .from_container label
+
+    {
+		margin-left:50px;
+
+    }
+
+.from_container input {
+
+
+	display:flex;
+    margin-bottom: 0.625rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0.625rem;
+    width:300px;
+    margin-left:50px;
+
+}
+.from_container h1
+{
+	text-align:center;
+}
+.from_container a{
+	color:red;
+
+    }
+
+</style>
+
+
+
+Form Component
+
+<div class="form_parent_container"data-sly-use.detail="com.adobe.aem.guides.wknd.core.models.Formnew">
+
+
+<h1>${detail.titles}</h1>
+
+    <form class="from_container" >
+
+		<label for="email">Email</label>
+        <span class="req">*</span>
+        <input placeholder="Email" type="email" id="email" name="email" value="${detail.email}" required>
+
+		<label for="password">Password</label>
+        <span class="req" >*</span>
+        <input placeholder="Password" type="password" id="pass" name="pass" value="${detail.pass}" required>
+
+
+
+        <a href="${detail.linkUrl}">${detail.fpass}</a>
+
+         <button type="submit">${detail.buttons}</button>
+
+        <a href="${detail.linkUrl}">${detail.signup}</a>
+
+
+    </form>
+
+</div>
+
+
+
+
+

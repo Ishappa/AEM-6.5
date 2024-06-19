@@ -1,0 +1,83 @@
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+.gallery_container2
+	{
+    display:flex;
+	justify-content:space-around;
+    background-color:black;
+    margin-bottom:0px;
+
+    }
+
+    .parent_container{
+    		flex-basis:50%;
+			 position: relative;
+
+    }
+
+   .parent_container img{
+
+    height:480px;
+    width:100%;
+    background-color:black;
+
+    }
+
+  .title_container h1
+  {
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+      color:white;
+
+  }
+
+    .child_container {
+		  position: absolute;
+		  bottom: 8px;
+		  right: 16px;
+		  color:white;
+          text-align: center;
+          left:-3px;
+          font-family: brandon-grotesque,sans-serif;
+			text-decoration:none;
+
+}
+.child_container a{
+text-decoration:none;
+    }
+
+</style>
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${resource.getChildren}"></sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='teaserImage1'}" /> 
+  </sly>
+
+ <section data-sly-list.props="${resource.getChildren}">
+          <div class="gallery_container2" data-sly-test="${props.name == 'fields'}" data-sly-list.multifielditem="${props.getChildren}" >
+
+	 <div class="parent_container">
+                    <img src="${multifielditem.fileReference}">
+
+			<div class="child_container">
+                <a  class="title_container" href="${multifielditem.internal}.html"> <h1>${multifielditem.title}</h1></a>
+					<p >${multifielditem.desc}</p>
+			</div>
+
+	 </div>
+
+          </div>
+ </section>
+
+ <sly data-sly-call="${template.placeholder  @ isEmpty=!empty}" ></sly>

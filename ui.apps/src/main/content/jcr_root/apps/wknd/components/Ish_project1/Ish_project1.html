@@ -1,0 +1,22 @@
+<h1>Details of the Employee </h1>
+<sly data-sly-use.detail="${'com.adobe.aem.guides.wknd.core.models.Ish_project1' @ Ish_project='Codilar1'}" />
+Employee name :: ${detail.fname} <br>
+Designation :: ${detail.desig} <br>
+Location :: ${detail.loc} <br>
+Experience :: ${detail.exp} <br>
+
+Request Attribute :: ${detail.Ish_project}<br>
+Page-Title :: ${detail.pageTitle}<br>
+ResourceType :: ${detail.slingresourceType} <br>
+Title::${detail.jcrtitle} <br>
+
+Resource Path :: ${detail.resource} <br>
+pageInfo :: ${detail.pageInfo}
+
+
+<sly data-sly-test="${detail.exp >= 5}">
+    <p>Senior employee</p>
+</sly>
+<sly data-sly-test="${detail.exp < 5}">
+    <p>Not a Senior employee</p>
+</sly>

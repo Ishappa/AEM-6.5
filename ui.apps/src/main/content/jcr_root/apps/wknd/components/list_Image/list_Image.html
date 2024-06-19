@@ -1,0 +1,21 @@
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${resource.getChildren}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" >
+      <sly data-sly-call="${clientlib.all @ categories='ImageList.wknd'}" /> 
+  </sly>
+
+
+ <section data-sly-list.props="${resource.getChildren}">
+          <div class="gallery_container_list" data-sly-test="${props.name == 'fields'}" data-sly-list.multifielditem="${props.getChildren}" >
+				<div class="one">
+                    <img class="imageList" src="${multifielditem.fileReference}">
+                    <a href="${multifielditem.internal}"> ${multifielditem.title}</a>
+
+				</div>
+		   </div>
+  </section>
+
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!empty}"></sly> 
+
+

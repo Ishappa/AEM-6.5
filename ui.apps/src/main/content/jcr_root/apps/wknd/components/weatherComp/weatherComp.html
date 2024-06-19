@@ -1,0 +1,81 @@
+
+<!-- weather.html -->
+
+<style>
+.weather_main
+{
+	border: 1px solid;
+    width: 550px;
+    height: 200px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 30px;
+    background-color: #e1dbdb;
+    border-radius: 10px
+}
+
+.weather_main button{
+
+ margin:10px;
+ border-radius:5px;
+
+
+}
+
+div .weather_detail
+{
+	color:red;
+
+}
+.weather_main button:hover{
+
+	color:black;
+    background-color:green;
+    width:100px;
+    transition:0.3s ease;
+    border:none;
+
+}
+.weather_heading{
+
+	padding-bottom:10px;
+   
+}
+
+</style>
+
+
+<div class="weather_main">
+	<h3 class="weather_heading">FETCH WEATHER DETAILS</h3>
+    <label for="city">City Name:</label>
+    <input type="text" id="city" name="city"><br>
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="weather_detail" id="weatherData"></div>
+
+</div>
+
+<script>
+    function getWeather() {
+        var city = document.getElementById("city").value;
+
+        // Make an AJAX request to the WeatherServlet
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+
+                    // Display the weather data
+                    document.getElementById("weatherData").innerHTML = xhr.responseText;
+                } else {
+                    console.error("Failed to fetch weather data.");
+                }
+            }
+        };
+
+        xhr.open("GET", "/bin/my/weather?city=" + city, true);
+        xhr.send();
+    }
+</script>

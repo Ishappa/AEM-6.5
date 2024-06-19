@@ -1,0 +1,66 @@
+<script>
+    var imagePath = document.getElementById("imagePath").getAttribute("data-path");
+    var imageResponse = document.getElementById("imageResponse").getAttribute("data-response");
+    var container = document.getElementById("container");
+	var statusMessage ;
+
+    if (imagePath) {
+        statusMessage = document.createElement('div');
+        statusMessage.classList.add("pophover_message")
+        statusMessage.textContent = imageResponse;
+        /*statusMessage.style.textAlign = 'center';
+        statusMessage.style.color = 'white';
+        statusMessage.style.backgroundColor='red';
+        statusMessage.style.maxWidth="fit-content";
+        statusMessage.style.margin="auto";
+        statusMessage.style.padding="10px";*/
+
+
+
+
+        //document.body.insertBefore(statusMessage, document.body.firstChild);
+        container.parentNode.insertBefore(statusMessage, container);
+    }
+
+    setTimeout(()=>{
+		/*statusMessage.style.padding="0px";*/
+         statusMessage.textContent = "";
+		statusMessage.classList.remove("pophover_message")
+
+    },3000)
+</script>
+
+<style>
+
+.pophover_message {
+
+color:red;
+text-align:center;
+
+margin:auto;
+max-width:fit-content;
+padding:10px;
+
+
+}
+
+</style>
+
+<div id="container"></div>
+<sly data-sly-use.template = "core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.path}">
+
+<sly data-sly-use.mod = "com.adobe.aem.guides.wknd.core.models.SingleImageUpload"/>
+
+<div id="imagePath" data-path="${mod.path}"></div>
+<div id="imageResponse" data-response="${mod.responString}"></div>
+
+<div style="text-align:center">
+<img src="${mod.path}" width=350px; />
+<!-- <h5 style="color:red">${mod.responString}</h5> -->
+
+</div>
+
+</sly>
+<sly data-sly-call = "${template.placeholder @ isEmpty =!empty}"> </sly>
+
+

@@ -1,0 +1,87 @@
+<style>
+
+ .main1_container{
+	border-style: solid;
+    border-top-width: 1px;
+    padding-top: 0rem;
+     border-color: #494646;
+
+ }
+
+    .main1_container{
+        display:flex;
+        justify-content:space-evenly;
+        background-color:black;
+        color:white;
+       height: 150px;
+    }
+.footer1{
+
+        margin-left: -176px;
+}
+.main1_container a{
+    opacity:0.7;
+    font-weight: 100;
+	font-size:1.125rem;
+    color:#999;
+
+}
+.main1_container a:hover{
+
+    text-decoration:underline;
+}
+.main1_container h1{
+
+    margin-top:10px;
+     margin-bottom:10px;
+    font-weight: 500;
+    font-size:1.5rem;
+    padding-top: 0;
+    font-family: Montserrat,sans-serif
+}
+
+    </style>
+
+
+
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.header1}">
+  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories=''}" /> 
+  </sly>
+
+      <div class="main1_container">
+
+
+          <div class="footer1">
+         <h1 class="heading">  ${properties.header1}</h1>
+         <section data-sly-list.props="${resource.getChildren}">
+            <div data-sly-test="${props.name == 'field1'}" data-sly-list.multifielditem="${props.getChildren}">
+              <a href="${multifielditem.link1}.html"> ${multifielditem.name1}</a><br>
+            </div>
+         </section>
+		</div>
+
+         <div class="footer2">
+          <h1 class="heading">  ${properties.header2}</h1>
+         <section data-sly-list.props="${resource.getChildren}">
+            <div data-sly-test="${props.name == 'field2'}" data-sly-list.multifielditem="${props.getChildren}">
+              <a href="${multifielditem.link2}.html"> ${multifielditem.name2}</a><br>
+            </div>
+         </section>
+		</div>
+
+
+         <div class="footer3">
+		 <h1 class="heading">  ${properties.header3}</h1>
+         <section data-sly-list.props="${resource.getChildren}">
+            <div data-sly-test="${props.name == 'field3'}" data-sly-list.multifielditem="${props.getChildren}">
+              <a href="${multifielditem.link3}.html"> ${multifielditem.name3}</a><br>
+            </div>
+         </section>
+			</div>
+
+      </div>
+
+    </sly>
+<sly data-sly-call="${template.placeholder  @ isEmpty=!empty}"></sly>

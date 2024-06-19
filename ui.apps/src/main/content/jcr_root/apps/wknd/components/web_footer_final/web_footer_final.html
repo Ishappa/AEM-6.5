@@ -1,0 +1,64 @@
+<style>
+
+
+.main_footer_container{
+
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-end;
+    font-family: -webkit-body;
+    background-color: black;
+    color:white;
+	padding-right: 80px;
+    padding-left: 80px;
+    padding-top: 17px;
+    padding-bottom: 50px;
+
+
+}
+
+.main_footer_container h4
+{
+	    font-weight: 100;
+         opacity:0.5;
+}
+.links_container{
+
+	 display:flex;
+	align-items: flex-end;
+
+}
+.links_container a{
+	font-family: -webkit-body;
+	padding:5px;
+    border-right: solid;
+    border-color: #b0aaaa;
+    border-width: thin;
+    opacity:0.5;
+    color:white;
+}
+
+
+</style>
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-test.empty="${properties.title}">
+  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories=''}" /> 
+  </sly>
+
+<div class="main_footer_container">
+
+<h4>${properties.title}</h4>
+<div class="links_container" data-sly-list.props="${resource.getChildren}">
+
+<div data-sly-test="${props.name=='fields'}" data-sly-list.multifielditem="${props.getChildren}">
+
+		<a href="">${multifielditem.links}</a>
+
+</div>
+
+</div>
+
+</div>
+    </sly>
+<sly data-sly-call="${template.placeholder  @ isEmpty=!empty}"></sly>

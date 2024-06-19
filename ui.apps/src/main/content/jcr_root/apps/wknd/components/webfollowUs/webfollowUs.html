@@ -1,0 +1,54 @@
+<style>
+
+.parent_container1
+{
+    background-color:black;
+    color:white;
+    width:744px;
+     height:200px;
+    margin-right:50px;
+    padding-top: 20px;
+}
+
+.parent_container1 img
+{
+ height:25px;
+ width:25px;
+ margin:6px;
+
+}
+
+</style>
+
+
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.all @ categories='teaserImage1.wknd'}" /> 
+  </sly>
+
+
+<div class = "parent_container1">
+<h2>${properties.title}</h2><br>
+
+ <section data-sly-list.props="${resource.getChildren}">
+   <div data-sly-test="${props.name == 'fields'}" data-sly-list.multifielditem="${props.getChildren}">
+
+	 <div style="max-width: 445px;font-weight: 200;">
+            <p> ${multifielditem.desc}</p>
+
+	 </div>
+   </div>
+
+ </section><br>
+
+ <a href="https://www.facebook.com/" target="_blank"><img src="https://media.ooka.com/media/wysiwyg/social_media_icon_2.png"/></a>
+ <a href="https://www.instagram.com/" target="_blank"><img src="https://media.ooka.com/media/wysiwyg/social_media_icon_1.png"/></a>
+  <a href=""><img src="https://media.ooka.com/media/wysiwyg/social_media_icon__.png"/></a>
+   <a href="https://www.youtube.com/" target="_blank"><img src="https://media.ooka.com/media/wysiwyg/social_media_icon_3.png"/></a>
+
+</div>
+</sly>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!headEmpty, classAppend='cmp-title'}"></sly>
